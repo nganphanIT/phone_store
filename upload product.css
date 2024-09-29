@@ -1,0 +1,70 @@
+
+/* Your CSS styles here */
+html, body {
+    height: 100%;
+    margin: 20px;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+form {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#productDetails {
+    max-width: 800px;
+    width: 100%;
+}
+
+#productList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#productList li {
+    margin-bottom: 20px;
+}
+
+#productList li img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,69 @@
+*{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 2px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ flex-direction: column;
+}
+
+.inputFile{
+  display: none;
+}
+label{
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 100px;
+  background: linear-gradient(45deg,red,blue);
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+button {
+  padding: 20px 25px;
+  background: rgba(12, 70, 179);
+  margin-bottom: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bar{
+  height: 50px;
+  width: 500px;
+  background: gray;
+  margin-bottom: 10px;
+}
+.progress{
+  background: linear-gradient(12deg,red,blue);
+  width: 0%;
+  height: 100%;
+}
+.uploadPercentage{
+  font-size: 25px;
+}
+.img{
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  display: none;
+  border: 5px solid cornflowerblue;
+}
+.imageUploaded{
+  margin-top: 10px;
+}

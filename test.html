@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+    const fetchData = () => {
+        return new Promise((resolve, reject) =>{
+            setTimeout(() => {
+                resolve('Data loaded successfully');
+            },2000)
+        })
+    }
+    const getData = async () => {
+        try {
+            const result = await fetchData();
+            console.log(result);
+        } catch (error){{
+            console.error('Error: ', error)
+        }}
+    };
+    getData();
+    const hang = (z, y) => z + y;
+    document.getElementById("demo").innerHTML = hang(5, 6);
+
+    const so = (x, y) => { 
+        return x * y 
+    };
+    document.getElementById("demo").innerHTML = so(4, 3);
+
+
+    let name =7
+    name = 9
+    console.log(name);
+    {
+        const name ="Minh"
+        console.log(name);
+    }
+    console.log(name);
+
+    const arr = []
+    arr.push(1,2,3,"Ngân","ES6")
+    console.log(arr);
+    arr.pop()
+    console.log(arr);
+    // let length = arr.length;
+    console.log(arr.length);
+
+    const sum =  (a,b) => {
+        console.log(a)
+        console.log(b)
+        const sum1 = a+b;
+        return sum1;
+    }
+    console.log(sum(9,7))
+
+    const sum2 =  (a,b) => a+b;
+    console.log(sum2(4,7))
+
+    const double = a => {
+        return a*a;
+    }
+    console.log(double(9))
+
+    const your_name = () => (
+        {name: 'Your name', old: 15 },
+        {name: 'Your name2', old: 16}
+    )
+    console.log(your_name());
+    console.log(your_name().name);
+    console.log(your_name().old);
+
+    const array = [4,5,6,7,8,9];
+    const array2 = [1,2,10];
+
+    const max = Math.max(...array2)
+    console.log(max)
+
+    const min = Math.min(...array2)
+    console.log(min)
+
+    let arrCloned = [3,...array,10]
+    console.log(arrCloned)
+
+    const concatedArray = [...array,"và",...array2]
+    console.log(concatedArray)
+
+    const obj = {name:"MindX",old:12}
+    console.log(obj.name)
+    console.log(obj.old)
+    console.log(obj)
+
+    const obj2 = {stt:1,...obj,address:"Can Tho",name:"code"}
+    console.log(obj2)
+
+    const arr3 = [2,7,10]
+    const arr4 = arr3.map((item)=> 
+    {
+        return item*2;
+    })
+    console.log(arr4);
+
+    const arr5 = arr3.filter((item) => 
+    {
+        return item%3 === 1
+    })
+    console.log(arr5)
+
+    const car =["BMW","Mer","Lambo"]
+    let text = ""
+    let x
+    for (x of car){
+        text += x + " ";
+    }
+    console.log(text)
+    
+</script>
+
+</body>
+</html>

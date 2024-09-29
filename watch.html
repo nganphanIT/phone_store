@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+</head>
+<body>
+    <div class="stopwatch">
+        <h2>Stopwatch 1</h2>
+        <p id="display1">00:00:00</p>
+        <button onclick="startStopwatch(1)">Start</button>
+        <button onclick="pauseStopwatch(1)">Pause</button>
+        <button onclick="stopStopwatch(1)">Stop</button>
+      </div>
+      
+      <div class="stopwatch">
+        <h2>Stopwatch 2</h2>
+        <p id="display2">00:00:00</p>
+        <button onclick="startStopwatch(2)">Start</button>
+        <button onclick="pauseStopwatch(2)">Pause</button>
+        <button onclick="stopStopwatch(2)">Stop</button>
+      </div>
+      
+      <button onclick="stopAllStopwatches()">Stop All</button>
+      <button onclick="startAllStopwatches()">Start All</button>
+      
+</body>
+</html>
+<style>
+    .stopwatch {
+  margin-bottom: 20px;
+}
+</style>
+<script>
+    let stopwatches = [];
+
+    function Stopwatch() {
+        this.isOn = false;
+        this.startTime = 0;
+        this.elapsedTime = 0;
+        this.timer = null;
+        this.display = null;
+    }
+
+    Stopwatch.prototype.start = function() {
+        if (!this.isOn) {
+            this.isOn = true;
+            this.startTime = new Date().getTime() - this.elapsedTime;
+            this.timer = setInterval(() => {
+                this.elapsedTime = new Date().getTime() - this.startTime;
+                this.displayTime();
+            }, 10);
+        }
+    };
+
+    Stopwatch.prototype.pause = function() {
+        clearInterval(this.timer);
+        this.isOn = false;
+    };
+
+    Stopwatch.prototype.stop = function() {
+        clearInterval(this.timer);
+        this.isOn = false;
+        this.elapsedTime = 0;
+        this.displayTime();
+    };
+
+    Stopwatch.prototype.displayTime = function() {
+        let centiseconds = ("0" + Math.floor((this.elapsedTime / 10) % 100)).slice(-2);
+        let seconds = ("0" + Math.floor((this.elapsedTime / 1000) % 60)).slice(-2);
+        let minutes = ("0" + Math.floor((this.elapsedTime / 60000) % 60)).slice(-2);
+        this.display.textContent = `${minutes}:${seconds}:${centiseconds}`;
+    };
+
+    function startStopwatch(id) {
+        if (!stopwatches[id]) {
+            stopwatches[id] = new Stopwatch();
+            stopwatches[id].display = document.getElementById(`display${id}`);
+        }
+        stopwatches[id].start();
+    }
+
+    function pauseStopwatch(id) {
+        if (stopwatches[id]) {
+            stopwatches[id].pause();
+        }
+    }
+
+    function stopStopwatch(id) {
+        if (stopwatches[id]) {
+            stopwatches[id].stop();
+        }
+    }
+
+    function stopAllStopwatches() {
+        stopwatches.forEach((stopwatch, index) => {
+            if (stopwatch) {
+                stopwatch.stop();
+            }
+        });
+    }
+
+    function startAllStopwatches() {
+        stopwatches.forEach((stopwatch, index) => {
+            if (stopwatch) {
+                stopwatch.start();
+            }
+        });
+    }
+</script>
+
+<!-- <script>
+    let stopwatches = [];
+
+function Stopwatch() {
+  this.isOn = false;
+  this.time = 0;
+  this.timer = null;
+  this.display = null;
+}
+
+Stopwatch.prototype.start = function() {
+  if (!this.isOn) {
+    this.isOn = true;
+    this.timer = setInterval(() => {
+      this.time++;
+      this.displayTime();
+    }, 10);
+  }
+};
+
+Stopwatch.prototype.pause = function() {
+  clearInterval(this.timer);
+  this.isOn = false;
+};
+
+Stopwatch.prototype.stop = function() {
+  clearInterval(this.timer);
+  this.isOn = false;
+  this.time = 0;
+  this.displayTime();
+};
+
+Stopwatch.prototype.displayTime = function() {
+  let centiseconds = ("0" + (this.time % 100)).slice(-2);
+  let seconds = ("0" + Math.floor(this.time / 100) % 60).slice(-2);
+  let minutes = ("0" + Math.floor(this.time / 6000)).slice(-2);
+  this.display.textContent = `${minutes}:${seconds}:${centiseconds}`;
+};
+
+function startStopwatch(id) {
+  if (!stopwatches[id]) {
+    stopwatches[id] = new Stopwatch();
+    stopwatches[id].display = document.getElementById(`display${id}`);
+  }
+  stopwatches[id].start();
+}
+
+function pauseStopwatch(id) {
+  if (stopwatches[id]) {
+    stopwatches[id].pause();
+  }
+}
+
+function stopStopwatch(id) {
+  if (stopwatches[id]) {
+    stopwatches[id].stop();
+  }
+}
+
+function stopAllStopwatches() {
+  stopwatches.forEach((stopwatch, index) => {
+    if (stopwatch) {
+      stopwatch.stop();
+    }
+  });
+}
+
+function startAllStopwatches() {
+  stopwatches.forEach((stopwatch, index) => {
+    if (stopwatch) {
+      stopwatch.start();
+    }
+  });
+}
+
+</script> -->

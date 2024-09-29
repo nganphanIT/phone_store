@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style-customer.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="cart-icon">
+                <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
+                <span class="cart-count">0</span>
+            </li>
+            <li class="login-icon">
+                <a href="#login"><i class="fas fa-sign-in-alt"></i></a>
+            </li>
+            <li class="register-icon">
+                <a href="#register" id="registerButton"><i class="fas fa-user-plus"></i></a>
+            </li>
+            <li class="logout-icon" style="display: none;">
+                <a href="#" id="logoutButton"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+            
+            
+            <li><span class="user-name"></span></li>
+
+        </ul>
+        
+    </nav>
+    
+    <div id="productDetails">
+        <h2>Product Details</h2>
+        <ul id="productList"></ul>
+    </div>
+    
+    <div id="cartDetails" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cart Details</h2>
+            <ul id="cartList"></ul>
+        </div>
+    </div>
+    
+
+   <!-- Modal for Registration Form -->
+   <div id="registerModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registrationForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- Modal for Login Form -->
+     <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" required>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-storage-compat.js"></script>
+    <script src="./display-product.js"></script>
+    <script src="./login.js"></script>
+  
+    
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
